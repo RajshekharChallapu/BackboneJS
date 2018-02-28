@@ -3,13 +3,21 @@
 // Later, you'll see how to organize your code into separate
 // files and modules.
 
-// to create model we extend Backbone.Model.extend
-let Song = Backbone.Model.extend({
-// initialize method
-  initialize: function(){
-    console.log("A new song has been created.");
+//
+var Animal = Backbone.Model.extend({
+  walk: function(){
+    console.log("Animal walking....");
   }
 });
 
-// instance created using new operator
-var song = new Song();
+var Dog = Animal.extend({
+
+  walk: function(){
+    Animal.prototype.walk.apply(this);
+    console.log("Dog wlakig");
+  }
+});
+
+var dog = new Dog();
+
+dog.walk();
